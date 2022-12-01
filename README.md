@@ -7,7 +7,7 @@ This project showcases most of the fun things I learned in the Fullstack Open 20
 
 # Website contents
 
-## /home
+## /
 Home page with two sections: 
 1. A copy of my Curriculum, and 
 2. Info about the project, extracted directly from the README.md using the Github API
@@ -25,8 +25,6 @@ Blog CRUD where people can interact with blogs.
 We separate our backend (server) and frontend (client) in two different folders, each one with its own node_modules.
 <br ><br >
 
-build -> app transpiled for production
-
 ## backend
 index.js -> entry point of the backend
 - routes -> API endpoints
@@ -39,16 +37,18 @@ index.js -> entry point of the backend
 <br ><br >
 
 # DB Schema
-in progres...
+in progress...
 <br ><br >
 
 # Packages / Dependencies
 
-- ESLint linter installed in frontend and backend separately
-- dotenv loads environment variables from a .env file into process.env
+- **ESLint:** Code linter installed in frontend and backend separately
+- **dotenv:** Loads environment variables from a .env file into process.env
+- **react-router-dom:** Allows client side routing: updates the URL from a link click without making a request from the server.
+- **styled-components:** Allows developers to write CSS-in-JS code to style React components
 
 # Notes
-- Project was prototyped with Figma
+- Frontend was prototyped with Figma
 - DB schema was prototyped with
 <br ><br ><br >
 

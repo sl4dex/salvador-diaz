@@ -10,6 +10,10 @@ app.use(express.json()) // cada vez que se haga una peticion, se va a ejecutar e
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, '../frontend/build')))
 
+app.get('/', (req, res) => { 
+  res.status(200).send('Hello World')
+})
+
 app.get('/api', (req, res) => { 
   res.send('Hello from Express!')
 })

@@ -3,6 +3,7 @@ const path = require('path')
 
 const config = {
   entry: './src/index.js',
+  devtool: 'source-map',
   output: {
     // it will be compiled to ./build/main.js
     path: path.resolve(__dirname, 'build'), // __dirname contains the absolute path of the directory containing the current file
@@ -19,6 +20,11 @@ const config = {
           presets: ['@babel/preset-react'],
         },
       },
+      // for webpack to handle images
+      {
+        type: 'asset',
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+      }
     ],
   },
 }
