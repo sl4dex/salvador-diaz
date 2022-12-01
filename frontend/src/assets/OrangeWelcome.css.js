@@ -15,6 +15,9 @@ img {
         color: white;
         padding: 0px 10px;
     }
+    a:hover { 
+        color: black;
+    }
 }
 
 padding: 15px 0px 30px; // clockwise top right bottom left

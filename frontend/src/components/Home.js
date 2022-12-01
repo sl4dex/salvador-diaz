@@ -1,9 +1,11 @@
 import React from 'react'
 import { OrangeWelcome } from '../assets/OrangeWelcome.css'
-import yo from '../assets/yo.png'
+import yo from '../assets/images/yo.png'
 import HomeContent from './HomeContent'
+//import { useState } from 'react'
 
-const Home = () => { 
+const Home = () => {
+
   return (
     <div>
       <OrangeWelcome>

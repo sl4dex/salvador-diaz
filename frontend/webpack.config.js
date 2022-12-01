@@ -3,7 +3,7 @@ const path = require('path')
 
 const config = {
   entry: './src/index.js',
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   output: {
     // it will be compiled to ./build/main.js
     path: path.resolve(__dirname, 'build'), // __dirname contains the absolute path of the directory containing the current file

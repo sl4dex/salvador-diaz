@@ -6,7 +6,7 @@ padding: 10px;
 a {
     color: black;
     text-align: center;
-    padding: 0px 15px; // top right bottom left
+    padding: 15px 15px; // top right bottom left
     text-decoration: none;
     font-size: 20px;
     font-weight: 500;
@@ -14,12 +14,12 @@ a {
   
   /* Change the color of links on hover */
   a:hover {
-    color: orange;
+    color: #FF621F;
   }
   
   /* Add a color to the active/current link */
   a:active {
-    background-color: orange;
+    background-color: #FF621F;
     color: white;
   }
 `
