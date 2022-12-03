@@ -9,7 +9,7 @@ userRouter.get('/users', async (req, res) => {
   res.status(200).send(users)
 })
 
-userRouter.post('/users', async (req, res, next) => { 
+userRouter.post('/register', async (req, res, next) => { 
   try{
     // hashes the password with 10 "salt rounds". The salt is included in the hash
     const pwdHash = await bcrypt.hash(req.body.password, 10)

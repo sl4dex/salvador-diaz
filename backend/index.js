@@ -21,8 +21,14 @@ app.use(express.json()) // cada vez que se haga una peticion, se va a ejecutar e
 app.use(express.static(path.join(__dirname, '../frontend/build')))
 
 // --- Routes --------------------------------------
-app.get('/', (req, res) => { 
-  res.status(200).send('Hello World')
+
+// Catch-all route to make sure the frontend always gets served, avoiding issues with refreshing the page with a non-root route
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
 })
 
 app.use('/api', userRouter)
