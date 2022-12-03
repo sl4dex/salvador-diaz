@@ -13,6 +13,7 @@ const Register = () => {
       console.log(response)
     } catch (err) {
       console.log('Error registering user: ', err)
+      setPassword('')
     }
   }
   return (

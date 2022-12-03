@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const userRouter = express.Router()
 
@@ -28,8 +29,11 @@ userRouter.post('/register', async (req, res, next) => {
 userRouter.post('/login', async (req, res) => {
   const user = await User.findOne({username: req.body.username}) // Se busca en la db un usuario con el mismo username que el del request
   const validPwd = await bcrypt.compare(req.body.password, user.passwordHash) // Se compara el passwordHash de la db con el passwordHash del request
-  if (validPwd)
-    res.status(200).send('')
+  if (validPwd){
+    const accesToken = jwt.sign({username: user.username, id: user._id}, process.env.JWT_TOKEN_SECRET) // Se crea un token con el username del usuario
+    res.status(200).send({accesToken})
+  }
+
   else
     res.status(401).send('Invalid username or password')
 })

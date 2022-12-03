@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { NavDiv } from '../assets/Nav.css'
+import Logout from './Logout'
 
-const Nav = () => { 
+
+const Nav = ({ logged }) => { 
   return (
     <NavDiv>
       <Link to={'/'}>Home</Link>
-      <Link to={'/memes'}>Memes</Link>
       <Link to={'/forum'}>Forum</Link>
-      <Link to={'/register'}>Sign up</Link>
-      <Link to={'/login'}>Login</Link>
-      <Link to={'/logout'}>Log out</Link>
+      <Link to={'/memes'}>Memes</Link>
+      {!logged && (<Link to={'/register'}>Sign up</Link>)}
+      {!logged && (<Link to={'/login'}>Login</Link>)}
+      {logged && (<Logout />)}
     </NavDiv>
   )
 }

@@ -60,6 +60,9 @@ in progress...
 - **react-markdown:** Renders markdown into a React component
 - **axios:** for making HTTP requests, I could use fetch but it's a matter of habit
 - **bcrypt:** string hashing library, I used it for password authentication
+- **jsonwebtoken:** Allows user authorization with tokens
+\
+&nbsp;
 
 # Notes
 - Frontend was prototyped with Figma
