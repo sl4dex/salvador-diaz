@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import userService from '../services/users'
+import { PageContent } from '../assets/PageContent.css'
 
 const Register = () => { 
   const [username, setUsername] = useState('')
@@ -17,7 +18,7 @@ const Register = () => {
     }
   }
   return (
-    <div>
+    <PageContent>
       <h1>Sign up</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -31,7 +32,7 @@ const Register = () => {
         </div>
         <button type="submit">Sign up</button>
       </form>
-    </div>
+    </PageContent>
   )
 }
 

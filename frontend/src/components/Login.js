@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import userService from '../services/users'
+import { useDispatch } from 'react-redux'
+import { setNotification, clearNotification } from '../redux/notificationSlice'
+import { PageContent } from '../assets/PageContent.css'
 
 const Login = ({ setLogged }) => { 
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -13,13 +17,20 @@ const Login = ({ setLogged }) => {
       window.localStorage.setItem('loggedUser', JSON.stringify(response)) 
       setLogged(true)
       console.log('Login successful', response)
+      dispatch(setNotification({ type: 'success', message: 'Login successful' }))
+      setTimeout(() => {
+        dispatch(clearNotification())
+      } , 2500)
     } catch (err) {
-      console.log('Error logging in: ', err)
+      dispatch(setNotification({ type: 'error', message: err.response.data }))
+      setTimeout(() => {
+        dispatch(clearNotification())
+      }, 2500)
       setPassword('')
     }
   }
   return ( 
-    <div>
+    <PageContent>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -33,7 +44,7 @@ const Login = ({ setLogged }) => {
         </div>
         <button type="submit">Login</button>
       </form>
-    </div>
+    </PageContent>
   )
 }
 

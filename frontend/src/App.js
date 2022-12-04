@@ -7,6 +7,7 @@ import Memes from './components/Memes'
 import Register from './components/Register'
 import Login from './components/Login'
 import Blogs from './components/Blogs'
+import Notification from './components/Notification'
 
 import Html from './assets/Html.css'
 import { useState, useEffect } from 'react'
@@ -26,6 +27,7 @@ const App = () => {
     <>
       <Html />
       <Nav logged={logged} />
+      <Notification />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/forum" element={<Blogs />} />
