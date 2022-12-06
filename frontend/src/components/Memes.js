@@ -1,10 +1,11 @@
 import React from 'react'
+import { PageContent } from '../assets/PageContent.css'
 
 const Memes = () => {
   return (
-    <div>
+    <PageContent>
       <h1>Memes</h1>
-    </div>
+    </PageContent>
   )
 }
 

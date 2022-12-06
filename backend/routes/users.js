@@ -30,8 +30,8 @@ userRouter.post('/login', async (req, res) => {
   const user = await User.findOne({username: req.body.username}) // Se busca en la db un usuario con el mismo username que el del request
   const validPwd = await bcrypt.compare(req.body.password, user.passwordHash) // Se compara el passwordHash de la db con el passwordHash del request
   if (validPwd){
-    const accesToken = jwt.sign({username: user.username, id: user._id}, process.env.JWT_TOKEN_SECRET) // Se crea un token con el username del usuario
-    res.status(200).send({accesToken})
+    const token = jwt.sign({username: user.username, id: user._id}, process.env.JWT_TOKEN_SECRET) // Se crea un token con el username del usuario
+    res.status(200).send({token})
   }
 
   else

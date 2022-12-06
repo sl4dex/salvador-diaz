@@ -13,8 +13,11 @@ const Login = ({ setLogged }) => {
   async function handleSubmit(e) {
     try{
       e.preventDefault()
+      console.log('1')
       const response = await userService.login({username, password})
+      console.log('2')
       window.localStorage.setItem('loggedUser', JSON.stringify(response)) 
+      console.log('3')
       setLogged(true)
       console.log('Login successful', response)
       dispatch(setNotification({ type: 'success', message: 'Login successful' }))

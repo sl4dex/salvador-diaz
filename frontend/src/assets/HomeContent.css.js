@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const HContentDiv = styled.div`
     margin: 30px 120px 0px 120px; // clockwise top right bottom left
+    padding 0px 0px 80px 0px;
     h2 { 
         font-size: 35px;
         font-weight: 300;

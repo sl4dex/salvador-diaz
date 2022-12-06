@@ -9,14 +9,14 @@ blogRouter.get('/blogs', async (req, res) => {
 })
 
 blogRouter.post('/blogs', async (req, res) => {
-  const decodedToken = authenticateToken(req)
-  if (decodedToken === 'token none')
-    return res.status(401).json({error: 'token missing'})
-  if (decodedToken === 'token invalid')
-    return res.status(401).json({error: 'token invalid'})
+  const tokResponse = await authenticateToken(req)
+  if (tokResponse !== 'token valid')
+    return res.status(401).json({error: tokResponse})
+  
   const blog = new Blog(req.body)
   const savedBlog = await blog.save()
-  res.json(savedBlog)
+  res.status(200).json(savedBlog)
+  
 })
 
 module.exports = blogRouter

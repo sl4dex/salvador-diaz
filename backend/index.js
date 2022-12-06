@@ -26,6 +26,11 @@ app.use(express.static(path.join(__dirname, '../frontend/build')))
 app.get('/api', function(req, res) {
   res.status(200).send('Hi')
 })
+
+
+app.use('/api', userRouter)
+app.use('/api', blogRouter)
+
 // Catch-all route to make sure the frontend always gets served, avoiding issues with refreshing the page with a non-root route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'), function(err) {
@@ -34,11 +39,6 @@ app.get('/*', function(req, res) {
     }
   })
 })
-
-
-app.use('/api', userRouter)
-app.use('/api', blogRouter)
-
 // middleware: si el body es JSON lo va a convertir en un objeto JS
 app.use(errorHandler) // IMPORTANTE PONER EL MIDDLEWARE DE MANEJO DE ERRORES DESPUES DE LAS RUTAS 
 

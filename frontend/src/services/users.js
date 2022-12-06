@@ -17,4 +17,4 @@ const login = async (user) => {
   return response.data
 }
 
-export default { getAll, register, login}
+export default { getAll, register, login }
