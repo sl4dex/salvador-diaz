@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const NavDiv = styled.div`
-margin: 15px 0px 10px 100px; // clockwise top right bottom left
+display: flex;
+align-items: center;
+margin: 15px 100px 10px 100px; // clockwise top right bottom left
 padding: 10px;
 a {
     color: black;
@@ -15,6 +17,7 @@ a {
   /* Change the color of links on hover */
   a:hover {
     color: #FF621F;
+    transition: 0.6s;
   }
   
   /* Add a color to the active/current link */

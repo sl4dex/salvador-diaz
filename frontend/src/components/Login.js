@@ -4,26 +4,26 @@ import userService from '../services/users'
 import { useDispatch } from 'react-redux'
 import { setNotification, clearNotification } from '../redux/notificationSlice'
 import { PageContent } from '../assets/PageContent.css'
+import { useNavigate } from 'react-router-dom'
 
 const Login = ({ setLogged }) => { 
   const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     try{
       e.preventDefault()
-      console.log('1')
       const response = await userService.login({username, password})
-      console.log('2')
       window.localStorage.setItem('loggedUser', JSON.stringify(response)) 
-      console.log('3')
       setLogged(true)
-      console.log('Login successful', response)
+
       dispatch(setNotification({ type: 'success', message: 'Login successful' }))
       setTimeout(() => {
         dispatch(clearNotification())
       } , 2500)
+      navigate('/')
     } catch (err) {
       dispatch(setNotification({ type: 'error', message: err.response.data }))
       setTimeout(() => {

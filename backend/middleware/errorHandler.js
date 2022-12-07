@@ -5,7 +5,8 @@ const errorHandler = (err, req, res, next) => {
   }
   else if ( err.message === 'data and salt arguments required' ) {
     return res.status(400).send({ error: 'bad request properties'})
-  } else {
+  } 
+  else {
     return res.status(400).send({ error: err })
   }
 
