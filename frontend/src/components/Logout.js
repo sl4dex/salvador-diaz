@@ -4,7 +4,6 @@ import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
 
 const Logout = () => { 
   const user = JSON.parse(window.localStorage.getItem('loggedUser')).username
-  console.log(user);
 
   function handleLogout() {
     window.localStorage.removeItem('loggedUser')

@@ -4,9 +4,10 @@ import blogService from '../services/blogs'
 import { PageContent } from '../assets/PageContent.css'
 import { BlogsDiv } from '../assets/BlogsDiv.css'
 import { BlogFormDiv } from '../assets/BlogFormDiv.css'
-import { SmallOrangeBtn } from '../assets/OrangeBtn.css'
+import { SmallOrangeBtn, SmallerOrangeBtn } from '../assets/OrangeBtn.css'
 import { useDispatch } from 'react-redux'
 import { setNotification, clearNotification } from '../redux/notificationSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Blogs = () => {   
   const [title, setTitle] = useState('')
@@ -14,6 +15,7 @@ const Blogs = () => {
   const [blogs, setBlogs] = useState([])
   const [showForm, setShowForm] = useState(false)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   // Cada vez que se renderiza el componente, agarra los blogs del backend
   useEffect(() => { 
@@ -24,7 +26,7 @@ const Blogs = () => {
     try{
       e.preventDefault()
       await blogService.create({title, content})
-      dispatch(setNotification({type: 'success', message: `"${title}" created`}))
+      dispatch(setNotification({type: ' success', message: `"${title}" created`}))
       setTimeout(() => dispatch(clearNotification()), 3500)
     } catch (err) {
       dispatch(setNotification({type: 'error', message: err.message}))
@@ -64,6 +66,7 @@ const Blogs = () => {
           <div key={blog.id}>
             <h3>{blog.title}</h3>
             <p>{blog.content}</p>
+            <SmallerOrangeBtn white onClick={() => navigate(`${blog.id}`)}>view more</SmallerOrangeBtn>
           </div>)}
       </BlogsDiv>
     </PageContent>

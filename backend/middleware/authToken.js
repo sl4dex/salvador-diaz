@@ -5,19 +5,23 @@ const  User = require('../models/User')
 async function authenticateToken(req) {
   const authHeader = req.headers['authorization'] // get auth header value from client request
   const token = authHeader && authHeader.split(' ')[1] // if theres a header, disregard the 'Bearer' part of the header and get the token
+  
   if (!token)
-    return 'token none'
+    return {tokenValid: false}
+  
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_TOKEN_SECRET)
     if (!decodedToken || !decodedToken.id)
-      return 'token invalid'
+      return {tokenValid: false}
   
     const user = await User.findById(decodedToken.id)
     if (!user)
-      return 'no user found from token'
-    return 'token valid'
+      return {tokenValid: false}
+
+    return {tokenValid: true, user}
   } catch {
-    return 'token invalid'
+    console.log('Error occurred in authtoken')
+    return {tokenValid: false}
   }
 }
 

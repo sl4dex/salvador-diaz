@@ -8,6 +8,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import Blogs from './components/Blogs'
 import Notification from './components/Notification'
+import Blog from './components/Blog'
 
 import Html from './assets/Html.css'
 import { useState, useEffect } from 'react'
@@ -30,10 +31,11 @@ const App = () => {
       <Notification />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/forum" element={<Blogs />} />
-        <Route path="/memes" element={<Memes />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setLogged={setLogged} />} />
+        <Route path="/forum" element={<Blogs />} />
+        <Route path="/forum/:blogid" element={<Blog />} />
+        <Route path="/memes" element={<Memes />} />
       </Routes>
     </>
   )

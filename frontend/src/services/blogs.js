@@ -16,6 +16,11 @@ const getAll = async () => {
   return response.data
 }
 
+const getBlog = async (id) => {
+  const response = await axios.get(`${baseUrl}/blogs/${id}`, setAuth())
+  return response.data
+}
+
 const create = async (newBlog) => {
   const config = setAuth()
   if (!config)
@@ -24,4 +29,12 @@ const create = async (newBlog) => {
   return response.data
 }
 
-export default { getAll, create }
+const deleteBlog = async (id) => {
+  const config = setAuth()
+  if (!config)
+    throw new Error('You must be logged in to delete a blog')
+  const response = await axios.delete(`${baseUrl}/blogs/${id}`, setAuth())
+  return response.data
+}
+
+export default { getAll, getBlog, create, deleteBlog }
