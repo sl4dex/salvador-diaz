@@ -25,13 +25,22 @@ const Blogs = () => {
   async function handleSubmit(e) {
     try{
       e.preventDefault()
-      await blogService.create({title, content})
-      dispatch(setNotification({type: ' success', message: `"${title}" created`}))
+      if (content.length > 2000 || title.length > 75) {
+        dispatch(setNotification({type: 'error', message: 'Title and content must be less than 75 and 2000 characters respectively'}))
+        setTimeout(() => dispatch(clearNotification()), 4500)
+        return null
+      }
+      const createdBlog = await blogService.create({title, content})
+      dispatch(setNotification({type: 'success', message: `"${title}" created`}))
       setTimeout(() => dispatch(clearNotification()), 3500)
+      setBlogs(blogs.concat(createdBlog))
+      setShowForm(false)
+      setTitle('')
+      setContent('')
     } catch (err) {
       dispatch(setNotification({type: 'error', message: err.message}))
       setTimeout(() => dispatch(clearNotification()), 3500)
-      setTitle('') 
+      setTitle('')
       setContent('')
     }
   }
@@ -65,7 +74,13 @@ const Blogs = () => {
         {blogs.map(blog => 
           <div key={blog.id}>
             <h3>{blog.title}</h3>
-            <p>{blog.content}</p>
+            <p>by {blog.user.username}</p>
+            <p>
+              {blog.content.length > 70 ?
+                blog.content.substring(0,80) + '...' :
+                blog.content
+              }
+            </p>
             <SmallerOrangeBtn white onClick={() => navigate(`${blog.id}`)}>view more</SmallerOrangeBtn>
           </div>)}
       </BlogsDiv>

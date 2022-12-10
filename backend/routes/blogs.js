@@ -14,7 +14,6 @@ blogRouter.get('/blogs/:id', async (req, res) => {
     return res.status(404).end() // si no hay blog devolver 404
 
   const tokResponse = await authenticateToken(req)
-  console.log('token is valid: ', tokResponse.tokenValid)
   if (!tokResponse.tokenValid)
     return res.status(200).json({ blog , tokenValid: false }) // si el token no es valido, devolver el blog con tokenValid false
   
@@ -29,9 +28,13 @@ blogRouter.post('/blogs', async (req, res) => {
   if (!tokResponse.tokenValid)
     return res.status(401).end()
   
+  if (req.body.content.length > 2000 || req.body.title.length > 75)
+    return res.status(413).end()
+
   const userPosting = tokResponse.user
   const blog = new Blog({...req.body, user: userPosting}) // creo el blog agragando la propiedad user: el user que lo creó
   const savedBlog = await blog.save()
+  console.log('saved content', savedBlog.content)
   res.status(200).json(savedBlog)
 })
 

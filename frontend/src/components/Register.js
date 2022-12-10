@@ -2,16 +2,23 @@ import React from 'react'
 import { useState } from 'react'
 import userService from '../services/users'
 import { PageContent } from '../assets/PageContent.css'
+import { setNotification, clearNotification } from '../redux/notificationSlice'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => { 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const dispatch =  useDispatch()
+  const navigate = useNavigate()
 
   async function handleSubmit(e) {
     try{
       e.preventDefault()
-      const response = await userService.register({username, password})
-      console.log(response)
+      await userService.register({username, password})
+      dispatch(setNotification({type: 'success', message: 'User registered, please log in'}))
+      setTimeout(() => dispatch(clearNotification()), 3000)
+      navigate('/login')
     } catch (err) {
       console.log('Error registering user: ', err)
       setPassword('')

@@ -40,7 +40,7 @@ const Blog = () => {
     <PageContent>
       <h1>{blog.title}</h1>
       <h3>by {user.username}</h3>
-      <p>{blog.content}</p>
+      <p style={{'whiteSpace': 'pre-line'}}>{blog.content}</p>
       <p>id: {id}</p>
       {token ? (<SmallerOrangeBtn onClick={() => handleDelete()}>Delete</SmallerOrangeBtn>) : null}
     </PageContent>
