@@ -12,7 +12,6 @@ function setAuth() {
 
 const getAll = async () => {
   const response = await axios.get(`${baseUrl}/blogs`)
-  console.log('response', response)
   return response.data
 }
 
@@ -45,4 +44,12 @@ const addComment = async (id, comment) => {
   return response.data
 }
 
-export default { getAll, getBlog, create, deleteBlog, addComment }
+const deleteComment = async (blogid, commentid) => {
+  const config = setAuth()
+  if (!config)
+    throw new Error('You must be logged in to comment')
+  const response = await axios.put(`${baseUrl}/blogs/${blogid}/comments`, {commentid},  setAuth())
+  return response.data
+}
+
+export default { getAll, getBlog, create, deleteBlog, addComment, deleteComment }

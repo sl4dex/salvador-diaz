@@ -7,7 +7,7 @@ async function authenticateToken(req) {
   const token = authHeader && authHeader.split(' ')[1] // if theres a header, disregard the 'Bearer' part of the header and get the token
   
   if (!token)
-    return {tokenValid: false}
+    return null
   
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_TOKEN_SECRET)

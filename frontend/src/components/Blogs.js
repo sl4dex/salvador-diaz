@@ -30,7 +30,9 @@ const Blogs = () => {
         setTimeout(() => dispatch(clearNotification()), 4500)
         return null
       }
-      const createdBlog = await blogService.create({title, content})
+      const regex = /\n\n+/g
+      const contentHandledNewlines = content.replace(regex, '\n\n') // si hay dos o mas saltos de linea, se reemplazan por uno solo 
+      const createdBlog = await blogService.create({title, content: contentHandledNewlines})
       dispatch(setNotification({type: 'success', message: `"${title}" created`}))
       setTimeout(() => dispatch(clearNotification()), 3500)
       setBlogs(blogs.concat(createdBlog))
@@ -38,10 +40,14 @@ const Blogs = () => {
       setTitle('')
       setContent('')
     } catch (err) {
+      if (err.response) {
+        dispatch(setNotification({type: 'error', message: err.response.data.error}))
+        setTimeout(() => dispatch(clearNotification()), 3500)
+        setTitle('')
+      }
       dispatch(setNotification({type: 'error', message: err.message}))
       setTimeout(() => dispatch(clearNotification()), 3500)
       setTitle('')
-      setContent('')
     }
   }
 
