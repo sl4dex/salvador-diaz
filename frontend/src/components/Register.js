@@ -20,7 +20,8 @@ const Register = () => {
       setTimeout(() => dispatch(clearNotification()), 3000)
       navigate('/login')
     } catch (err) {
-      console.log('Error registering user: ', err)
+      dispatch(setNotification({type: 'error', message: err.response.data.error}))
+      setTimeout(() => dispatch(clearNotification()), 3000)
       setPassword('')
     }
   }

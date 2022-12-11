@@ -8,7 +8,7 @@ const getAll = async () => {
 }
 
 const register = async (user) => { 
-  const response = await axios.post(`${baseUrl}/register`, user)
+  const response = await axios.post(`${baseUrl}/register`, user) // si hay un error, axios lo atrapa y lo envia al catch (no hace el return response.data)
   return response.data
 }
 

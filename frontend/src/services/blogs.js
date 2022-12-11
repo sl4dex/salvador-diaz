@@ -37,4 +37,12 @@ const deleteBlog = async (id) => {
   return response.data
 }
 
-export default { getAll, getBlog, create, deleteBlog }
+const addComment = async (id, comment) => {
+  const config = setAuth()
+  if (!config)
+    throw new Error('You must be logged in to comment')
+  const response = await axios.post(`${baseUrl}/blogs/${id}/comments`, comment, setAuth())
+  return response.data
+}
+
+export default { getAll, getBlog, create, deleteBlog, addComment }

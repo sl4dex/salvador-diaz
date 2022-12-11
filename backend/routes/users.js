@@ -10,7 +10,7 @@ userRouter.get('/users', async (req, res) => {
   res.status(200).send(users)
 })
 
-userRouter.post('/register', async (req, res, next) => { 
+userRouter.post('/register', async (req, res) => { 
   try{
     // hashes the password with 10 "salt rounds". The salt is included in the hash
     const pwdHash = await bcrypt.hash(req.body.password, 10)
@@ -22,7 +22,9 @@ userRouter.post('/register', async (req, res, next) => {
     const savedUser = await newUser.save()
     res.status(200).send(savedUser)
   } catch (err) {
-    next(err) // Si hay un error, lo agarra y se lo manda el middleware errorHandler
+    if (err.message.includes('expected `username` to be unique'))
+      res.status(400).json({error: 'Username already taken'})
+    res.status(400).end()
   }
 })
 

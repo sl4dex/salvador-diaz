@@ -48,4 +48,31 @@ blogRouter.delete('/blogs/:id', async (req, res) => {
   res.status(204).end()
 })
 
+// 👇 blog comments
+
+blogRouter.post('/blogs/:id/comments', async (req, res) => {
+  try {
+    const newcomment = req.body.comment
+  
+    const tokResponse = await authenticateToken(req)
+    if (!tokResponse.tokenValid)
+      return res.status(401).end()
+    
+    if (newcomment.length > 200)
+      return res.status(413).end()
+  
+    const blog = await Blog.findById(req.params.id)
+    if (!blog)
+      return res.status(404).end()
+    
+    
+    blog.comments.push({comment: newcomment, user: tokResponse.user.username, date: new Date()})
+    const savedBlog = await blog.save()
+    res.status(200).json(savedBlog)
+  } catch (err) {
+    console.log(err.message)
+    res.status(400).end()
+  }
+})
+
 module.exports = blogRouter

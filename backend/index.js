@@ -3,7 +3,6 @@ const path = require('path')
 const mongoose = require('mongoose')
 // saca las variabes de entorno de .env y las carga en process.env
 require('dotenv').config()
-const errorHandler = require('./middleware/errorHandler')
 const userRouter = require('./routes/users')
 const blogRouter = require('./routes/blogs')
 
@@ -39,8 +38,6 @@ app.get('/*', function(req, res) {
     }
   })
 })
-// middleware: si el body es JSON lo va a convertir en un objeto JS
-app.use(errorHandler) // IMPORTANTE PONER EL MIDDLEWARE DE MANEJO DE ERRORES DESPUES DE LAS RUTAS 
 
 app.listen(process.env.PORT, () => {
   console.log('Server is running on port 3001')

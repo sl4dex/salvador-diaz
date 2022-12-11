@@ -2,7 +2,11 @@ import styled from 'styled-components'
 
 // background-color: #FF621F;
 export const PageContent = styled.div`
-  padding: 30px 100px 80px 100px;
+  ${props => props.comments ? `
+  padding: 30px 100px 20px 100px;
+  ` : `
+    padding: 30px 100px 80px 100px;
+  `}
   background-color: #FDDDDD;
   
   h1 {
