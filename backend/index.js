@@ -31,14 +31,14 @@ app.use('/api', userRouter)
 app.use('/api', blogRouter)
 
 // Catch-all route to make sure the frontend always gets served, avoiding issues with refreshing the page with a non-root route
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../frontend/build/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
 
 app.listen(process.env.PORT, () => {
-  console.log('Server is running on port 3001')
+  console.log('Server is running on port ', process.env.PORT)
 })
