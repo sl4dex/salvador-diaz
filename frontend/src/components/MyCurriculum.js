@@ -1,36 +1,63 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import hb from '../assets/images/hb.png'
 import tcs from '../assets/images/tcs.png'
+import helsinki from '../assets/images/Logo_University_of_Helsinki.png'
+import hb from '../assets/images/hb.png'
 import utu from '../assets/images/utu.png'
 
 const MyCurriculum = () => {
   return (
     <>
-      <h2>Experience</h2><div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '20px' }}>
+      <h2>Experience</h2>
+      
+      <div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '20px' }}>  
         <div>
           <img src={tcs} width='100px' />
         </div>
         <div>
-          <p><b>Tata Consultancy Services</b> - IT Technician Aug. 2022 - present</p>
+          <p><b>Tata Consultancy Services</b> - IT Technician - Aug. 2022 - present</p>
           <ul>
-            <li>Provide assistance to Microsoft customers having issues with the Office package </li>
-            <li>Working daily in english with customers and teammates via email and meetings</li>
-            <li>Constant troubleshooting and teamwork required to come up with a solution to the customers</li>
+            <li>Provide assistance to Microsoft customers having issues with the Office package.</li>
+            <li>Working daily in english with customers and teammates via email and meetings.</li>
+            <li>Constant troubleshooting and teamwork required to come up with a solution to the customers.</li>
           </ul>
         </div>
-      </div><br /><h2>Education</h2><div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '40px' }}>
+      </div>
+      <br />
+      
+      <h2>Education</h2>
+
+      <div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '40px' }}>  
+        <div>
+          <img src={helsinki} width='80px' height='80px' />
+        </div>
+        <div>
+          <p><b>Fullstack Open</b> - University of Helsinki online course Sep. 2022 - Nov. 2022 (3 months) - github: <a href='https://github.com/sl4dex/Full-Stack-Open-2022' target="_blank" rel="noopener noreferrer">here</a></p>
+          <ul>
+            <li>Modern web application development with JavaScript.</li>
+            <li>Developed React and Nodejs fullstack web-apps with the latest technology standards.</li>
+            <li>Stored information with MongoDB and managed E2E testing of the app with Cypress.</li>
+          </ul>
+        </div>
+      </div>
+      <br />
+
+      <div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '40px' }}>  
         <div>
           <img src={hb} width='80px' height='80px' />
         </div>
         <div>
           <p><b>Holberton School Uruguay</b> - Software engineering bootcamp - Sep. 2021 - Jul. 2022 (10 months)</p>
           <ul>
-            <li>1st trimester: Git, Linux and Bash, Low level with C language - github: <a href='https://github.com/sl4dex/holbertonschool-low_level_programming'>here</a></li>
-            <li>2nd trimester: High level with Python language, OOP, Algorithms - github: <a href='https://github.com/sl4dex/holbertonschool-higher_level_programming'>here</a> and <a href='https://github.com/sl4dex/sorting_algorithms'>here</a></li>
-            <li>3rd trimester: Web Architecture, final project MVP (stockIT MVP) - github: <a href='https://github.com/sl4dex/stockIT'>here</a></li>
+            <li>1st trimester: Git, Linux and Bash, Low level with C language. - github: <a href='https://github.com/sl4dex/holbertonschool-low_level_programming' target="_blank" rel="noopener noreferrer">here</a></li>
+            <li>2nd trimester: High level with Python language, OOP, Algorithms. - github: <a href='https://github.com/sl4dex/holbertonschool-higher_level_programming' target="_blank" rel="noopener noreferrer">here</a> and <a href='https://github.com/sl4dex/sorting_algorithms'>here</a></li>
+            <li>3rd trimester: Web Architecture, final project MVP (stockIT MVP). - github: <a href='https://github.com/sl4dex/stockIT' target="_blank" rel="noopener noreferrer">here</a></li>
           </ul>
         </div>
-      </div><br /><div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '40px' }}>
+      </div>
+      <br />
+      
+      <div style={{ 'display': 'flex', 'alignItems': 'center', 'gap': '40px' }}>
         <div>
           <img src={utu} width='80px' height='80px' />
         </div>
@@ -40,7 +67,24 @@ const MyCurriculum = () => {
             <li>Introduction to Programming, OOP, Networks, Basic Linux and Bash, and MySQL</li>
           </ul>
         </div>
-      </div><br /><h2>Projects</h2><h3>stockIT MVP</h3><p><b>Holberton School final team project</b> - Jul.2022 - github: <a href='https://github.com/sl4dex/stockIT'>here</a></p><p>Our team designed, implemented and deployed a Python Flask web-app that lets users manage their own online inventory, adding and updating products and branches, while also see graphs and charts generated by their data.</p>
+      </div>
+      <br />
+
+      <h2>Projects</h2>
+      
+      <h3>This Website :)</h3>
+      <p><b>Fullstack Single Page Application</b> - Dec. 2022 - github: <a href='https://github.com/sl4dex/salvador-diaz' target="_blank" rel="noopener noreferrer">here</a></p>
+      <p>
+        Website app with my CV, a Forum, and some of my favourite web-dev memes. For more information see the 'This Website' section above.
+      </p>
+      <br />
+
+      <h3>stockIT MVP</h3>
+      <p><b>Holberton School final team project</b> - Jul. 2022 - github: <a href='https://github.com/sl4dex/stockIT' target="_blank" rel="noopener noreferrer">here</a></p>
+      <p>
+        Our team designed, implemented and deployed a Python Flask web-app that lets users manage their own online inventory,
+        adding and updating products and branches, while also see graphs and charts generated by their data.
+      </p>
     </>
   )
 }

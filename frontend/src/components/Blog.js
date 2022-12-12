@@ -18,9 +18,7 @@ const Blog = () => {
   const id = useParams().blogid
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  useEffect(() => {
-    console.log('comments: ', comments)
-  })
+
   useEffect(() => {
     blogService.getBlog(id).then(res => { 
       setBlog(res.blog)

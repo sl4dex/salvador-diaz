@@ -13,8 +13,8 @@ const Home = () => {
         </div>
         <div className='title-and-links'>
           <h1>Welcome to my website!</h1>
-          <a href='https://github.com/sl4dex'>My Github</a>
-          <a href='https://www.linkedin.com/in/salvador-d'>My LinkedIn</a>
+          <a href='https://github.com/sl4dex' target="_blank" rel="noopener noreferrer">My Github</a>
+          <a href='https://www.linkedin.com/in/salvador-d' target="_blank" rel="noopener noreferrer">My LinkedIn</a>
         </div>
       </OrangeWelcome>
       <HomeContent />
