@@ -66,7 +66,6 @@ in progress...
 
 # Notes
 - Frontend was prototyped with Figma
-- DB schema was prototyped with
 \
 &nbsp;
 \
