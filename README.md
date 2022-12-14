@@ -1,7 +1,11 @@
 # Portfolio Website
 Hi!
+\
+&nbsp;
 Welcome to my portfolio web application, it is built using the MERN stack architecture (MongoDB, Express, React, Node) and bundled using Webpack.
 This project showcases most of the fun things I learned in the Fullstack Open 2022 course, check it out!
+\
+&nbsp;
 \
 &nbsp;
 🌎 [salvadordiaz.rocks](https://salvadordiaz.rocks/)
@@ -39,30 +43,59 @@ We separate our backend (server) and frontend (client) in two different folders,
 
 ## backend
 - **index.js** -> entry point of the backend.
+\
+&nbsp;
 - **routes** -> API endpoints.
+\
+&nbsp;
 - **models** -> MongoDB database schemas.
+\
+&nbsp;
 - **middleware** -> not really middleware but contains a jwt helper function.
 
 ## frontend
 - **build** -> bundled frontend with webpack.
   - **index.html** -> empty html skeleton with a single div with an id of root.
   - **main.js** -> all React JSX bundled into a single vanilla javascript file. Is called by index.html.
+\
+&nbsp;
 - **src** -> React frontend.
   - **assets** -> styled components and images.
   - **components** -> React components.
   - **redux** -> Redux-toolkit slices and Redux store .
   - **services** -> axios requests to the backend API.
+\
+&nbsp;
 - **App.js** -> top React component that calls all other components as subcomponents.
+\
+&nbsp;
 - **index.js** -> puts App compoenent inside root div.
+\
+&nbsp;
 - **webpack.config.js** -> config for Webpack bundling.
 \
 &nbsp;
 
 # DB Schema
 
-<img width="500" alt="DBSchema" src="https://user-images.githubusercontent.com/22855312/207488949-c1d32f63-f699-4660-8750-ef34265a0500.png">
+| Blog      |                           |            |
+|-----------|---------------------------|------------|
+| title     |  String, required         |            |
+| content   |  String, required         |            |
+| comments  |  {                        |            |
+|           |     user                  | String     |
+|           |     comment               | String     |
+|           |  }                        |            |
+| user      |  ObjectId user Schema     |            |
+| id        |  ObjectId                 |            |
+  
+  
+| User         |                           |
+|--------------|---------------------------|
+| username     |  String, required, unique |
+| passwordHash |  String, required         |
+| id           |  ObjectId                 |
 
-&nbsp;
 \
 &nbsp;
 
