@@ -3,6 +3,7 @@ import { OrangeWelcome } from '../assets/OrangeWelcome.css'
 import yo from '../assets/images/yo.png'
 import HomeContent from './HomeContent'
 
+// Rectangulo naranja abajo del nav
 const Home = () => {
 
   return (

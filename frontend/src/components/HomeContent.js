@@ -6,6 +6,7 @@ import ThisWebsite from './ThisWebsite'
 import { useState } from 'react'
 
 
+// Renderiza condicionalmente Mi CV o informacion sobre la website segun el boton que se aprete
 const HomeContent = () => { 
   const [section, setSection] = useState('myCurriculum')
   return (

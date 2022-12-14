@@ -14,7 +14,6 @@ import h from '../assets/images/memes/networking_problems.png'
 import i from '../assets/images/memes/nodemodules.png'
 import j from '../assets/images/memes/overengineering.png'
 
-//const basePath = '../assets/images/memes' 
 const Memes = () => {
   const memes = [a, b, c, d, e, f, g, h, i, j]
   const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 10))
@@ -24,7 +23,7 @@ const Memes = () => {
       <h1>Memes</h1>
       <img src={memes[randomNumber]} style={{'width': '400px', 'display': 'block', 'marginTop': '40px'}} />
       <br />
-      <SmallerOrangeBtn onClick={() => setRandomNumber(Math.floor(Math.random() * 10))}>New Meme</SmallerOrangeBtn>
+      <SmallerOrangeBtn onClick={() => setRandomNumber(Math.floor(Math.random() * 10))}>Random Meme</SmallerOrangeBtn>
     </PageContent>
   )
 }
