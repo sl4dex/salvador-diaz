@@ -14,4 +14,12 @@ export const PageContent = styled.div`
   }
 
   hr { border-top: 1px solid #FF621F;}
+
+  @media (max-width: 485px) {
+    ${props => props.comments ? `
+      padding: 30px 20px 30px 20px;
+      ` : `
+        padding: 30px 20px 80px 20px;
+      `}
+    }
 `

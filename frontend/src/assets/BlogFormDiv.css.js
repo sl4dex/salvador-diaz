@@ -9,12 +9,12 @@ export const BlogFormDiv = styled.div`
   input {
     display: block;
     margin: 5px 0px 10px 0px;
-    width: 35%;
+    width: 45%;
   }
 
   textarea { 
-    width: 45%;
-    height: 5rem;
+    width: 70%;
+    height: 15rem;
     padding: 10px;
     margin: 5px 0px 10px 0px;
   }
@@ -30,5 +30,11 @@ export const BlogFormDiv = styled.div`
   button { 
     margin-bottom: 20px;
     margin-right: 5px;
+  }
+
+  @media (max-width: 485px) {
+    input, textarea { 
+      width: 95%;
+    }
   }
 `

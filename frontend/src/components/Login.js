@@ -4,6 +4,8 @@ import userService from '../services/users'
 import { useDispatch } from 'react-redux'
 import { setNotification, clearNotification } from '../redux/notificationSlice'
 import { PageContent } from '../assets/PageContent.css'
+import { AuthDiv } from '../assets/AuthDiv.css'
+import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
 import { useNavigate } from 'react-router-dom'
 
 const Login = ({ setLogged }) => { 
@@ -34,19 +36,21 @@ const Login = ({ setLogged }) => {
   }
   return ( 
     <PageContent>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input type="name" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </div>
+      <AuthDiv>
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="username">Username</label>
+            <input type="name" name="username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+          </div>
 
-        <div>
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <SmallerOrangeBtn type="submit">Login</SmallerOrangeBtn>
+        </form>
+      </AuthDiv>
     </PageContent>
   )
 }

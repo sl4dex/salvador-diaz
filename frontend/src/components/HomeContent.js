@@ -11,7 +11,7 @@ const HomeContent = () => {
   const [section, setSection] = useState('myCurriculum')
   return (
     <HContentDiv>
-      <div style={{'display': 'flex', 'gap': '10px', 'paddingBottom': '20px'}}>
+      <div className='homeOrangeButtons'>
         <OrangeBtn onClick={() => setSection('myCurriculum')}>My Curriculum</OrangeBtn>
         <OrangeBtn onClick={() => setSection('thisWbesite')}>This Website</OrangeBtn>
       </div>

@@ -5,6 +5,7 @@ display: flex;
 align-items: center;
 margin: 15px 100px 10px 100px; // clockwise top right bottom left
 padding: 10px;
+white-space: nowrap;
 a {
     color: black;
     text-align: center;
@@ -24,5 +25,14 @@ a {
   a:active {
     background-color: #FF621F;
     color: white;
+  }
+
+  @media (max-width: 485px) {
+    justify-content: center;
+    margin: 15px 15px 15px 15px;
+    padding: 0px;
+    a {
+        padding: 5px 10px;
+    }
   }
 `

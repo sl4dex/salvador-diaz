@@ -3,6 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import { PageContent } from '../assets/PageContent.css'
 import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
+import { MemesDiv } from '../assets/Memes.css' 
 import a from '../assets/images/memes/C.jpg'
 import b from '../assets/images/memes/auth.png'
 import c from '../assets/images/memes/containers.png'
@@ -20,9 +21,11 @@ const Memes = () => {
 
   return (
     <PageContent>
-      <h1>Memes</h1>
-      <img src={memes[randomNumber]} style={{'width': '400px', 'display': 'block', 'marginTop': '40px'}} />
-      <br />
+      <MemesDiv>
+        <h1>Memes</h1>
+        <img src={memes[randomNumber]} />
+        <br />
+      </MemesDiv>
       <SmallerOrangeBtn onClick={() => setRandomNumber(Math.floor(Math.random() * 10))}>Random Meme</SmallerOrangeBtn>
     </PageContent>
   )

@@ -29,4 +29,18 @@ export const OrangeWelcome = styled.div`
         margin: 0px 0px 15px 0px;
         font-size: 50px;
     }
+
+    @media (max-width: 485px) { 
+        display: block;
+        padding: 15px 15px 20px 15px;
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .title-and-links { 
+            text-align: center;
+        }
+
+    }
 `

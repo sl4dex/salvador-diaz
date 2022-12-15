@@ -12,6 +12,13 @@ const Html = createGlobalStyle`
     body { 
         margin: 0px;
     }
+
+    @media (max-width: 485px) {
+        html { 
+            font-size: 14px;
+            
+        }
+    }
 `
 
 export default Html

@@ -11,7 +11,7 @@ export const CommentsDiv = styled.div`
     margin-bottom: 15px;
     
     textarea {
-      width: 50%;
+      width: 60%;
       height: 2rem;
       resize: none;
     }
@@ -22,15 +22,31 @@ export const CommentsDiv = styled.div`
   }
 
   div {
-    padding: 15px 0px;
+    padding: 15px 0px 10px 0px;
     border-bottom: 1px solid lightgrey;
-    width: 50%;
-    
+    width: 60%;
+    overflow: hidden;
     p:nth-child(1) {
-      margin: 0px 0px 8px 0px;
+      margin: 0px 0px 8px 5px;
     }
     p:nth-child(2) {
-      margin: 0px;
+      margin: 0px 0px 0px 10px;
+    }
+    button {
+      float: right;
+      margin-right: 10px;
+    }
+  }
+  
+  @media (max-width: 485px) {
+    padding: 30px 20px 80px 20px;
+    form { 
+      textarea {
+        width: 100%;
+      }
+    }
+    div {
+      width: 100%;
     }
   }
 `

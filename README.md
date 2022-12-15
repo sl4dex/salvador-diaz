@@ -76,29 +76,6 @@ We separate our backend (server) and frontend (client) in two different folders,
 \
 &nbsp;
 
-# DB Schema
-
-| Blog      |                           |            |
-|-----------|---------------------------|------------|
-| title     |  String, required         |            |
-| content   |  String, required         |            |
-| comments  |  {                        |            |
-|           |     user                  | String     |
-|           |     comment               | String     |
-|           |  }                        |            |
-| user      |  ObjectId user Schema     |            |
-| id        |  ObjectId                 |            |
-  
-  
-| User         |                           |
-|--------------|---------------------------|
-| username     |  String, required, unique |
-| passwordHash |  String, required         |
-| id           |  ObjectId                 |
-
-\
-&nbsp;
-
 # Some of the Packages
 
 - **webpack** Module bundler and minifier for the frontend.
