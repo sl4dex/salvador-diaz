@@ -22,7 +22,7 @@ blogRouter.get('/blogs/:id', async (req, res) => {
       {user: c.user, comment: c.comment, _id: c._id.toString(), isOwner: true} : 
       {user: c.user, comment: c.comment, _id: c._id.toString(), isOwner: false}))
     
-  blog = {title: blog.title, content: blog.content, comments: commentsWithOwner, user: {username: blog.user.username, id: blog.user.id.toString()}, id: blog.id.toString()}
+  blog = {title: blog.title, url: blog.url, content: blog.content, comments: commentsWithOwner, user: {username: blog.user.username, id: blog.user.id.toString()}, id: blog.id.toString()}
   // 👆 tuve que hacer esto porque 'blog.comments = commentsWithOwner' no actualizaba blog.comments, no logre saber por que
   if (!tokResponse.tokenValid)
     return res.status(200).json({ blog , tokenValid: false }) // si el token no es valido, devolver el blog con tokenValid false
@@ -41,11 +41,10 @@ blogRouter.post('/blogs', async (req, res) => {
     
     if (req.body.content.length > 2000 || req.body.title.length > 75)
       return res.status(413).end()
-  
+    
     const userPosting = tokResponse.user
     const blog = new Blog({...req.body, user: userPosting}) // creo el blog agragando la propiedad user: el user que lo creó
     const savedBlog = await blog.save()
-    console.log('saved content', savedBlog.content)
     res.status(200).json(savedBlog)
   } catch (err) {
     if (err.message.includes('Path `content` is required'))

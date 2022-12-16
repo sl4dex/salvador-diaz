@@ -18,13 +18,6 @@ export const HContentDiv = styled.div`
         gap: 10px;
     }
 
-    a {
-        text-decoration: none;
-    }
-    a:hover { 
-        color: #FF621F;
-    }
-
     hr {
         border-top: 1px solid #FF621F;
         margin-left: 10px;

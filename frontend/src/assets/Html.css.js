@@ -6,6 +6,13 @@ const Html = createGlobalStyle`
         h1, h2, h3, h4, h5, h6 {
             font-weight: 450;
         }
+        a {
+            text-decoration: none;
+        }
+        a:hover { 
+            color: #FF621F;
+            transition: 0.5s;
+        }
     }
 
     // body has by default an unwanted margin of 8px

@@ -4,6 +4,8 @@ import styled from 'styled-components'
 export const PageContent = styled.div`
   ${props => props.comments ? `
   padding: 30px 100px 20px 100px;
+  h1 { margin-bottom: 8px;}
+  h3 { margin: 0px 0px 20px 0px;}
   ` : `
     padding: 30px 100px 80px 100px;
   `}

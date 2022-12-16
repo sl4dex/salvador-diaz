@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Blogs = () => {   
   const [title, setTitle] = useState('')
+  const [url, setUrl] = useState('')
   const [content, setContent] = useState('')
   const [blogs, setBlogs] = useState([])
   const [showForm, setShowForm] = useState(false)
@@ -25,14 +26,14 @@ const Blogs = () => {
   async function handleSubmit(e) {
     try{
       e.preventDefault()
-      if (content.length > 2000 || title.length > 75) {
+      if (content.length > 2000 || title.length > 75 || url.length > 150) {
         dispatch(setNotification({type: 'error', message: 'Title and content must be less than 75 and 2000 characters respectively'}))
         setTimeout(() => dispatch(clearNotification()), 4500)
         return null
       }
       const regex = /\n\n+/g
       const contentHandledNewlines = content.replace(regex, '\n\n') // si hay dos o mas saltos de linea, se reemplazan por uno solo 
-      const createdBlog = await blogService.create({title, content: contentHandledNewlines})
+      const createdBlog = await blogService.create({title, url, content: contentHandledNewlines})
       dispatch(setNotification({type: 'success', message: `"${title}" created`}))
       setTimeout(() => dispatch(clearNotification()), 3500)
       setBlogs(blogs.concat(createdBlog))
@@ -64,6 +65,10 @@ const Blogs = () => {
               <div>
                 <label htmlFor="title">Title</label>
                 <input type="text" name="title" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+              </div>
+              <div>
+                <label htmlFor="url">URL (Optional)</label>
+                <input type="text" name="url" id="url" value={url} onChange={(e) => setUrl(e.target.value)} />
               </div>
               <div>
                 <label htmlFor="content">Content</label>

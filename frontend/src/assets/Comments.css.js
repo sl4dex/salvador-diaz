@@ -25,7 +25,7 @@ export const CommentsDiv = styled.div`
     padding: 15px 0px 10px 0px;
     border-bottom: 1px solid lightgrey;
     width: 60%;
-    overflow: hidden;
+    overflow: auto;
     p:nth-child(1) {
       margin: 0px 0px 8px 5px;
     }

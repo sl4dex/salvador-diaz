@@ -40,12 +40,19 @@ const Blog = () => {
       console.log(err)
     }
   }
+  const checkURL = (url) => {  // if the url doesn't start with http:// or https://, add it
+    if (url.startsWith('http://') || url.startsWith('https://'))
+      return url
+    else
+      return 'http://' + url
+  }
 
   return (
     <>
       <PageContent comments>
         <h1>{blog.title}</h1>
         <h3>by {user.username}</h3>
+        {blog.url && blog.url.length ? (<a href={checkURL(blog.url)} target='_blank' rel='noreferrer'>Go to original article</a>) : null}
         <p style={{'whiteSpace': 'pre-line'}}>{blog.content}</p>
         {token ? (<SmallerOrangeBtn onClick={() => handleDelete()}>Delete</SmallerOrangeBtn>) : null}
       </PageContent>

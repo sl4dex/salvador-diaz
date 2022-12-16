@@ -36,10 +36,11 @@ const BlogComments = ({ id, comments, setComments }) => {
     try {
       const commentid = e.currentTarget.id
       if (window.confirm('Are you sure you want to delete you comment?')) {
-        const response = await blogService.deleteComment(id, commentid)
+        await blogService.deleteComment(id, commentid)
         dispatch(setNotification({type: 'success', message: 'comment deleted successfully'}))
         setTimeout(() => dispatch(clearNotification()), 3500)
-        setComments(response)
+        const response = await blogService.getBlog(id) // to check again ownership of comments
+        setComments(response.blog.comments)
       }
     } catch (err) {
       console.log(err)
