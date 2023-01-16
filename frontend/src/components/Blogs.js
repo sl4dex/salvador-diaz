@@ -4,7 +4,7 @@ import blogService from '../services/blogs'
 import { PageContent } from '../assets/PageContent.css'
 import { BlogsDiv } from '../assets/BlogsDiv.css'
 import { BlogFormDiv } from '../assets/BlogFormDiv.css'
-import { SmallOrangeBtn, SmallerOrangeBtn } from '../assets/OrangeBtn.css'
+import { SmallOrangeBtn, SmallerOrangeBtn } from '../assets/Buttons'
 import { useDispatch } from 'react-redux'
 import { setNotification, clearNotification } from '../redux/notificationSlice'
 import { useNavigate } from 'react-router-dom'
@@ -32,14 +32,14 @@ const Blogs = () => {
         return null
       }
       const regex = /\n\n+/g
-      const contentHandledNewlines = content.replace(regex, '\n\n') // si hay dos o mas saltos de linea, se reemplazan por uno solo 
+      const contentHandledNewlines = content.replace(regex, '\n\n') // si hay dos o mas saltos de linea, se reemplazan por dos 
       const createdBlog = await blogService.create({title, url, content: contentHandledNewlines})
-      dispatch(setNotification({type: 'success', message: `"${title}" created`}))
-      setTimeout(() => dispatch(clearNotification()), 3500)
       setBlogs(blogs.concat(createdBlog))
       setShowForm(false)
       setTitle('')
       setContent('')
+      dispatch(setNotification({type: 'success', message: `"${title}" created`}))
+      setTimeout(() => dispatch(clearNotification()), 3500)
     } catch (err) {
       if (err.response) {
         dispatch(setNotification({type: 'error', message: err.response.data.error}))
@@ -87,13 +87,14 @@ const Blogs = () => {
             <h3>{blog.title}</h3>
             <p>by {blog.user.username}</p>
             <p>
-              {blog.content.length > 70 ?
+              {blog.content.length > 80 ?
                 blog.content.substring(0,80) + '...' :
                 blog.content
               }
             </p>
             <SmallerOrangeBtn white onClick={() => navigate(`${blog.id}`)}>view more</SmallerOrangeBtn>
-          </div>)}
+          </div>
+        )}
       </BlogsDiv>
     </PageContent>
   )

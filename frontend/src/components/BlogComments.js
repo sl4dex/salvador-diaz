@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { CommentsDiv } from '../assets/Comments.css'
-import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
+import { SmallerOrangeBtn } from '../assets/Buttons'
 import blogService from '../services/blogs'
 import { setNotification, clearNotification } from '../redux/notificationSlice'
 import { useDispatch } from 'react-redux'

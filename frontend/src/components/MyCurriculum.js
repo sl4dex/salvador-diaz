@@ -16,7 +16,7 @@ const MyCurriculum = () => {
           <img src={tcs} width='100px' />
         </div>
         <div>
-          <p><b>Tata Consultancy Services</b> - IT Technician - Aug. 2022 - present</p>
+          <p><b>Tata Consultancy Services</b> - IT Technician - Aug. 2022 - Dec. 2022 (5 months)</p>
           <ul>
             <li>Provide assistance to Microsoft customers having issues with the Office package.</li>
             <li>Working daily in english with customers and teammates via email and meetings.</li>

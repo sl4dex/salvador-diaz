@@ -1,6 +1,6 @@
 import React from 'react'
 import { HContentDiv } from '../assets/HomeContent.css'
-import { OrangeBtn } from '../assets/OrangeBtn.css'
+import { OrangeBtn } from '../assets/Buttons'
 import MyCurriculum from './MyCurriculum'
 import ThisWebsite from './ThisWebsite'
 import { useState } from 'react'

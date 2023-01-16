@@ -1,5 +1,5 @@
 import React from 'react'
-import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
+import { SmallerOrangeBtn } from '../assets/Buttons'
 
 
 const Logout = () => { 
@@ -11,7 +11,7 @@ const Logout = () => {
   }
   return (
     // aligns the button to the right with flexbox
-    <div style={{'marginLeft': 'auto'}}> 
+    <div> 
       logged in as <b style={{'paddingRight': '8px'}}>{user}</b><SmallerOrangeBtn onClick={handleLogout}>Logout</SmallerOrangeBtn>
     </div>
   )

@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { PageContent } from '../assets/PageContent.css'
-import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
+import { SmallerOrangeBtn } from '../assets/Buttons'
 import { MemesDiv } from '../assets/Memes.css' 
 import a from '../assets/images/memes/C.jpg'
 import b from '../assets/images/memes/auth.png'

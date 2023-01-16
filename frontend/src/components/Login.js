@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setNotification, clearNotification } from '../redux/notificationSlice'
 import { PageContent } from '../assets/PageContent.css'
 import { AuthDiv } from '../assets/AuthDiv.css'
-import { SmallerOrangeBtn } from '../assets/OrangeBtn.css'
+import { SmallerOrangeBtn } from '../assets/Buttons'
 import { useNavigate } from 'react-router-dom'
 
 const Login = ({ setLogged }) => { 
