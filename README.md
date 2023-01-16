@@ -1,17 +1,11 @@
-# Portfolio Website
-Hi!
-\
-&nbsp;
+# 📙 Portfolio Website
+Hi!  
 Welcome to my portfolio web application, it is built using the MERN stack architecture (MongoDB, Express, React, Node) and bundled using Webpack.
-This project showcases most of the fun things I learned in the Fullstack Open 2022 course, check it out!
-\
-&nbsp;
-\
-&nbsp;
-🌎 [salvadordiaz.rocks](https://salvadordiaz.rocks/)
-\
-&nbsp;
-# Website contents
+This project showcases most of the fun things I learned in the Fullstack Open 2022 course, check it out!  
+   
+🌎 [salvadordiaz.rocks](https://salvadordiaz.rocks/)  
+   
+# 📄 Website contents
 
 ## /
 Home page with two sections: 
@@ -36,7 +30,7 @@ User authentication and authorization using JSON Web Tokens.
 \
 &nbsp;
 
-# File structure
+# 📂 File structure
 We separate our backend (server) and frontend (client) in two different folders, each one with its own node_modules.
 \
 &nbsp;
@@ -76,7 +70,7 @@ We separate our backend (server) and frontend (client) in two different folders,
 \
 &nbsp;
 
-# Some of the Packages
+# 📚 Some of the Packages
 
 - **webpack** Module bundler and minifier for the frontend.
 - **eslint:** Code linter installed in frontend and backend separately.
@@ -92,7 +86,7 @@ We separate our backend (server) and frontend (client) in two different folders,
 \
 &nbsp;
 
-# Notes
+# 📋 Notes
 - Frontend was prototyped with [Figma](https://www.figma.com/file/SsXrI0iPo1bbsZCgQWHHqr/salvador-diaz.io?node-id=3%3A3&t=58m37SeeebSK8zcw-1).
 - Website deployment with SSL was managed with [Render](https://render.com/).
 - Domain name and DNS configured in [Name.com](https://www.name.com/).
