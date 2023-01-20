@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 // this css is mobile first, because it assumes is mobile, then checks if the screen is bigger than 485px
 export const MemesDiv = styled.div`
-  img {
+img {
     width: 100%;
     margin-bottom: 20px;
   }
@@ -9,6 +9,5 @@ export const MemesDiv = styled.div`
   @media (min-width: 485px) {
     display: block;
     img { width: 40%; }
-    margin-top: 40px;
   }
 `

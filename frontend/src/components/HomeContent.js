@@ -12,8 +12,8 @@ const HomeContent = () => {
   return (
     <HContentDiv>
       <div className='homeOrangeButtons'>
-        <OrangeBtn onClick={() => setSection('myCurriculum')}>My Curriculum</OrangeBtn>
-        <OrangeBtn onClick={() => setSection('thisWbesite')}>This Website</OrangeBtn>
+        <OrangeBtn id='my-cv-button' onClick={() => setSection('myCurriculum')}>My Curriculum</OrangeBtn>
+        <OrangeBtn id='this-website-button' onClick={() => setSection('thisWbesite')}>This Website</OrangeBtn>
       </div>
       
       {section === 'myCurriculum' ? <MyCurriculum /> : <ThisWebsite />}

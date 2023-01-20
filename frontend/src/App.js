@@ -10,7 +10,7 @@ import Blogs from './components/Blogs'
 import Logout from './components/Logout'
 import Notification from './components/Notification'
 import Blog from './components/Blog'
-import OtherWebsites from './components/OtherWebsites'
+import MySites from './components/MySites'
 
 import Html from './assets/Html.css'
 import { MyHeader } from './assets/MyHeader.css'
@@ -42,7 +42,7 @@ const App = () => {
         <Route path="/forum" element={<Blogs />} />
         <Route path="/forum/:blogid" element={<Blog />} />
         <Route path="/memes" element={<Memes />} />
-        <Route path="/other-websites" element={<OtherWebsites />} />
+        <Route path="/my-sites" element={<MySites />} />
       </Routes>
     </>
   )

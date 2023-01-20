@@ -24,6 +24,11 @@ const create = async (newBlog) => {
   const config = setAuth()
   if (!config)
     throw new Error('You must be logged in to create a blog')
+  if(newBlog.title.length === 0 || newBlog.content.length === 0)
+    throw new Error('Title and content can\'t be empty')
+  if (newBlog.content.length > 2000 || newBlog.title.length > 75 || newBlog.url.length > 150)
+    throw new Error('Title, url and content must be less than 75, 150 and 2000 characters respectively')
+  
   const response = await axios.post(`${baseUrl}/blogs`, newBlog, setAuth())
   return response.data
 }

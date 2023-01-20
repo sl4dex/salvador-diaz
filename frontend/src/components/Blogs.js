@@ -26,11 +26,6 @@ const Blogs = () => {
   async function handleSubmit(e) {
     try{
       e.preventDefault()
-      if (content.length > 2000 || title.length > 75 || url.length > 150) {
-        dispatch(setNotification({type: 'error', message: 'Title and content must be less than 75 and 2000 characters respectively'}))
-        setTimeout(() => dispatch(clearNotification()), 4500)
-        return null
-      }
       const regex = /\n\n+/g
       const contentHandledNewlines = content.replace(regex, '\n\n') // si hay dos o mas saltos de linea, se reemplazan por dos 
       const createdBlog = await blogService.create({title, url, content: contentHandledNewlines})
@@ -43,11 +38,11 @@ const Blogs = () => {
     } catch (err) {
       if (err.response) {
         dispatch(setNotification({type: 'error', message: err.response.data.error}))
-        setTimeout(() => dispatch(clearNotification()), 3500)
+        setTimeout(() => dispatch(clearNotification()), 4000)
         setTitle('')
       }
       dispatch(setNotification({type: 'error', message: err.message}))
-      setTimeout(() => dispatch(clearNotification()), 3500)
+      setTimeout(() => dispatch(clearNotification()), 4000)
       setTitle('')
     }
   }
@@ -74,8 +69,8 @@ const Blogs = () => {
                 <label htmlFor="content">Content</label>
                 <textarea type="text" name="content" id="content" value={content} onChange={(e) => setContent(e.target.value)} />
               </div>
-              <button type="submit">Create</button>
-              <button onClick={() => setShowForm(false)}>Cancel</button>
+              <SmallerOrangeBtn type="submit" id='create-blog-button'>Create</SmallerOrangeBtn>
+              <SmallerOrangeBtn onClick={() => setShowForm(false)}>Cancel</SmallerOrangeBtn>
             </form>
             <hr />
           </BlogFormDiv>

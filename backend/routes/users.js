@@ -13,6 +13,8 @@ userRouter.get('/users', async (req, res) => {
 userRouter.post('/register', async (req, res) => { 
   try{
     // hashes the password with 10 "salt rounds". The salt is included in the hash
+    if (req.body.username.length <= 2 || req.body.password <= 2)
+      res.status(400).json({error: 'Username and password must be at least 3 characters long'})
     const pwdHash = await bcrypt.hash(req.body.password, 10)
   
     const newUser = new User({

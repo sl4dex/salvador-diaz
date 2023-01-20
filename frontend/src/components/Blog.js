@@ -54,7 +54,7 @@ const Blog = () => {
         <h3>by {user.username}</h3>
         {blog.url && blog.url.length ? (<a href={checkURL(blog.url)} target='_blank' rel='noreferrer'>Go to original article</a>) : null}
         <p style={{'whiteSpace': 'pre-line'}}>{blog.content}</p>
-        {token ? (<SmallerOrangeBtn onClick={() => handleDelete()}>Delete</SmallerOrangeBtn>) : null}
+        {token ? (<SmallerOrangeBtn id='delete-blog-button' onClick={() => handleDelete()}>Delete</SmallerOrangeBtn>) : null}
       </PageContent>
 
       <BlogComments id={id} comments={comments} setComments={setComments} />

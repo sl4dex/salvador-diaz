@@ -48,7 +48,7 @@ const Login = ({ setLogged }) => {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <SmallerOrangeBtn type="submit">Login</SmallerOrangeBtn>
+          <SmallerOrangeBtn type="submit" id='login-button'>Login</SmallerOrangeBtn>
         </form>
       </AuthDiv>
     </PageContent>

@@ -13,6 +13,7 @@ export const PageContent = styled.div`
   
   h1 {
     margin-top: 0px;
+    margin-bottom: 35px;
   }
 
   hr { border-top: 1px solid #FF621F;}

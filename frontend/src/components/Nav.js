@@ -22,7 +22,7 @@ const Nav = ({ logged }) => {
             <li><Link to={'/'} onClick={handleOpen}>Home</Link></li>
             <li><Link to={'/forum'} onClick={handleOpen}>Forum</Link></li>
             <li><Link to={'/memes'} onClick={handleOpen}>Memes</Link></li>
-            <li><Link to={'/other-websites'} onClick={handleOpen}>Other Websites</Link></li>
+            <li><Link to={'/my-sites'} onClick={handleOpen}>My Sites</Link></li>
             {!logged && (<li><Link to={'/register'} onClick={handleOpen}>Sign up</Link></li>)}
             {!logged && (<li><Link to={'/login'} onClick={handleOpen}>Login</Link></li>)}
           </ul>
@@ -36,7 +36,7 @@ const Nav = ({ logged }) => {
           <li><Link to={'/'}>Home</Link></li>
           <li><Link to={'/forum'}>Forum</Link></li>
           <li><Link to={'/memes'}>Memes</Link></li>
-          <li><Link to={'/other-websites'}>Other Websites</Link></li>
+          <li><Link to={'/my-sites'}>My Sites</Link></li>
           {!logged && (<li><Link to={'/register'}>Sign up</Link></li>)}
           {!logged && (<li><Link to={'/login'}>Login</Link></li>)}
         </ul>

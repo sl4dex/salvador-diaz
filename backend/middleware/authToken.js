@@ -19,8 +19,8 @@ async function authenticateToken(req) {
       return {tokenValid: false}
 
     return {tokenValid: true, user}
-  } catch {
-    console.log('Error occurred in authtoken')
+  } catch (err) {
+    console.log('Error occurred in authtoken: ', err.message)
     return {tokenValid: false}
   }
 }

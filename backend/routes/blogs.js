@@ -109,6 +109,7 @@ blogRouter.put('/blogs/:id/comments', async (req, res) => {
     if (!blog)
       return res.status(404).end()
     
+    console.log(req.body.commentid);
     const updatedComments = blog.comments.filter(c => c._id.toString() !== req.body.commentid) // actualiza los comments para tener todos menos el que se envio para borrar
     const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, {comments: updatedComments}, { new: true })
     res.status(200).json(updatedBlog.comments)

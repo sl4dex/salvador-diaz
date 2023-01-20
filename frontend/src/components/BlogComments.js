@@ -51,15 +51,15 @@ const BlogComments = ({ id, comments, setComments }) => {
     <CommentsDiv>
       <h2>comments</h2>
       <form onSubmit={handleSubmit}>
-        <textarea type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Share a comment!" />
-        <SmallerOrangeBtn type='submit'>Submit</SmallerOrangeBtn>
+        <textarea id='comment-text' type="text" value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Share a comment!" />
+        <SmallerOrangeBtn id='submit-comment-button' type='submit'>Submit</SmallerOrangeBtn>
       </form>
       {comments.length ? 
         comments.map(c => (
           <div key={c._id}>
             <p><b>{c.user}</b></p>
             <p style={{'whiteSpace': 'pre-line'}}>{c.comment}</p>
-            {c.isOwner ? (<SmallerOrangeBtn id={c._id} onClick={(e) => handleDelete(e)}>Delete</SmallerOrangeBtn>) : null}
+            {c.isOwner ? (<SmallerOrangeBtn id={c._id} className="delete-comment-button" onClick={(e) => handleDelete(e)}>Delete</SmallerOrangeBtn>) : null}
           </div>
         )) :
         (<p>No comments yet</p>)

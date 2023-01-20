@@ -22,9 +22,15 @@ const Register = () => {
       setTimeout(() => dispatch(clearNotification()), 3000)
       navigate('/login')
     } catch (err) {
-      dispatch(setNotification({type: 'error', message: err.response.data.error}))
-      setTimeout(() => dispatch(clearNotification()), 3000)
-      setPassword('')
+      if (!err.response) {
+        dispatch(setNotification({type: 'error', message: err.message}))
+        setTimeout(() => dispatch(clearNotification()), 3000)
+      }
+      else {
+        dispatch(setNotification({type: 'error', message: err.response.data.error}))
+        setTimeout(() => dispatch(clearNotification()), 3000)
+        setPassword('')
+      }
     }
   }
   return (
@@ -41,7 +47,7 @@ const Register = () => {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <SmallerOrangeBtn type="submit">Sign up</SmallerOrangeBtn>
+          <SmallerOrangeBtn type="submit" id='signup-button'>Sign up</SmallerOrangeBtn>
         </form>
       </AuthDiv>
     </PageContent>
